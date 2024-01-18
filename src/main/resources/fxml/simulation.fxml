@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<?import com.simulator.fxComponent.NumberTextField?>
+<?import javafx.scene.text.Text?>
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.simulator.controller.SimulationController">
+    <center>
+        <VBox fx:id="mainBox" alignment="TOP_CENTER" BorderPane.alignment="TOP_LEFT" spacing="5" styleClass="background-pane">
+            <children>
+                <Text fx:id="header" styleClass="xl-text"/>
+                <GridPane fx:id="gridPane" vgap="10" hgap="5" alignment="BASELINE_LEFT">
+                    <columnConstraints>
+                        <ColumnConstraints halignment="LEFT"/>
+                        <ColumnConstraints halignment="LEFT"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints/>
+                        <RowConstraints/>
+                    </rowConstraints>
+                    <children>
+                        <!--comport-->
+                        <Label styleClass="xl-text" text="COM PORT" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                        <ComboBox fx:id="comPicker" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                        <Button fx:id="connectBtn" text="Connect Port" onAction="#connectPort"  GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+                        <Button fx:id="closeBtn" text="Disconnect Port" onAction="#closePort"  GridPane.columnIndex="3" GridPane.rowIndex="0"/>
+
+                        <!--                     class-->
+                        <Label styleClass="xl-text" text="Class" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                        <TextField fx:id="classPicker" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                        <Button text="Class" onAction="#displayClass"  GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+                        <Button text="Clear" onAction="#clearClass"  GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+
+                        <!--                     fare-->
+                        <Label styleClass="xl-text" text="Toll Fare" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                        <NumberTextField fx:id="fareField"  styleClass="xl-field" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                        <Button text="Fare" onAction="#displayTollFare"  GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+                        <Button text="Clear" onAction="#clearTollFare"  GridPane.columnIndex="3" GridPane.rowIndex="2"/>
+
+                        <!--                        //message-->
+                        <Label styleClass="xl-text" text="Message" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                        <TextField fx:id="msgLine1" styleClass="xl-field" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                        <TextField fx:id="msgLine2" styleClass="xl-field" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+
+                        <Button text="Message" onAction="#displayMessage"  GridPane.columnIndex="2" GridPane.rowIndex="4"/>
+                        <Button text="Clear" onAction="#clearMessage"  GridPane.columnIndex="3" GridPane.rowIndex="4"/>
+
+                        <!--                        //reset-->
+                        <Button text="Display All" onAction="#displayAll"  GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+                        <Button text="Reset All" onAction="#resetAll"  GridPane.columnIndex="2" GridPane.rowIndex="5"/>
+
+                    </children>
+                    <padding>
+                        <Insets bottom="12.0" top="12.0"/>
+                    </padding>
+                </GridPane>
+                <VBox spacing="10" fx:id="messageBox">
+                    <children>
+                        <Label fx:id="errMsgLabel" textFill="crimson"/>
+                        <Label fx:id="successMsgLabel" textFill="green"/>
+                        <Label fx:id="portMsgLabel" styleClass="hello-message"/>
+                        <Label fx:id="classMsgLabel" styleClass="hello-message"/>
+                        <Label fx:id="fareMsgLabel" styleClass="hello-message"/>
+                        <Label fx:id="messageLabel" styleClass="hello-message"/>
+                    </children>
+                </VBox>
+
+
+            </children>
+        </VBox>
+    </center>
+</BorderPane>
